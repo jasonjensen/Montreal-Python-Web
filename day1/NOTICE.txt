@@ -1,0 +1,3 @@
+Code for "Web scraping and text processing with Python" workshop. 
+
+This code is developed by Radhika Saksena (radhika.saksena at gmail dot com).
