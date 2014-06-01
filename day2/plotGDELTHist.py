@@ -11,20 +11,24 @@ import warnings
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import urllib2
 
 warnings.filterwarnings('ignore')
 
-"""Bar chart of event counts per country March 2014."""
+'''Bar chart of event counts per country March 2014.'''
 
 month = 3 # set month to March
 
-# exit if gdelt/ directory doesn't already exist
+# exit if gdelt/ directory if it doesn't already exist
 if not os.path.exists(os.getcwd() + "/gdelt"):
     raise "Data directory does not exist."
     sys.exit(-1)
 
-# get the column names for the GDelt dataset
-colNames = open("CSV.header.historical.txt","r").readline().split("\t")
+# get the column names for the GDELT dataset
+headerURL = "http://gdeltproject.org/data/lookups/CSV.header.historical.txt"
+headerStr = urllib2.urlopen(headerURL).read()
+colNames = headerStr.split("\t")
+#colNames = open("CSV.header.historical.txt","r").readline().split("\t")
 colNames.append("SOURCEURL")
 
 # declare frequency table
@@ -36,7 +40,7 @@ for day in range(1,7):
     fileName = "2014%02d%02d.export.CSV" % (month,day)
     localFile = os.getcwd() + "/gdelt/" + fileName
 
-    # check if the GDELT file exists
+    # check if the dataset for this date exists
     if(not os.path.exists(localFile)):
         continue
 
