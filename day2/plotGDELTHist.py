@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 
 month = 3 # set month to March
 
-# exit if gdelt/ directory if it doesn't already exist
+# exit if gdelt/ directory doesn't already exist
 if not os.path.exists(os.getcwd() + "/gdelt"):
     raise "Data directory does not exist."
     sys.exit(-1)

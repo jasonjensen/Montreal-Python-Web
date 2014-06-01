@@ -17,7 +17,7 @@ month = 3
 if not os.path.exists(os.getcwd() + "/gdelt"):
     os.mkdir(os.getcwd() + "/gdelt")
 
-# try downloading the Congressional Record for May 2014
+# try downloading the files for March 2014
 #for day in range(1,31):
 for day in range(5,15):
 
@@ -26,7 +26,7 @@ for day in range(5,15):
     fileURL = "http://data.gdeltproject.org/events/%s"  % (fileName)
     localFile = os.getcwd() + "/gdelt/" + fileName
 
-    # use the urllib2 module to access the Congressional URL (PDF document) 
+    # use the urllib2 module to access the compressed events data file
     resp = urllib2.urlopen(fileURL)
 
     # write the record to a local file
