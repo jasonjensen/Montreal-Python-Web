@@ -31,7 +31,7 @@ colNames = headerStr.split("\t")
 #colNames = open("CSV.header.historical.txt","r").readline().split("\t")
 colNames.append("SOURCEURL")
 
-# declare frequency table
+# initializee frequency table
 allCnt = 0
 
 #for day in range(1,31):
